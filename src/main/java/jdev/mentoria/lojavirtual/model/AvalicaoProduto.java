@@ -2,6 +2,7 @@ package jdev.mentoria.lojavirtual.model;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -30,8 +31,11 @@ public class AvalicaoProduto implements Serializable {
 	@EqualsAndHashCode.Include
 	private Long id;
 	
+	@Column(nullable = false)
+	
 	private String descricao;
 	
+	@Column(nullable = false)
 	private Integer nota;
 	
 	@ManyToOne(targetEntity = Pessoa.class)

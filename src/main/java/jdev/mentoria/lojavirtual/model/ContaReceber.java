@@ -2,6 +2,8 @@ package jdev.mentoria.lojavirtual.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -31,14 +33,22 @@ public class ContaReceber {
 	@EqualsAndHashCode.Include
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_conta_receber")
 	private Long id;
+	
+	@Column(nullable = false)
 	private String descricao;
+	
+	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private StatusContaReceber status;
+	
 	@Temporal(TemporalType.DATE)
 	private Date dtVencimento;
 	@Temporal(TemporalType.DATE)
 	private Date dtPagamento;
+	
+	@Column(nullable = false)
 	private BigDecimal valorTotal;
+	
 	private BigDecimal valorDesconto;
 	@ManyToOne(targetEntity = Pessoa.class)
 	@JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "pessoa_fk"))

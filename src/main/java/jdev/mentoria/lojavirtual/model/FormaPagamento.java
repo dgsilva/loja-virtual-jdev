@@ -1,5 +1,6 @@
 package jdev.mentoria.lojavirtual.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class FormaPagamento {
 	@EqualsAndHashCode.Include
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_forma_pagamento")
 	private Long id;
+	@Column(nullable = false)
 	private String descricao;
 
 }

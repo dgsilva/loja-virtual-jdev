@@ -1,6 +1,7 @@
 package jdev.mentoria.lojavirtual.model;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -26,6 +27,7 @@ public class ItemVendaLoja {
 	@EqualsAndHashCode.Include
 	private Long id;
 	
+	@Column(nullable = false)
 	private Double quantidade;
 	
 	@ManyToOne
